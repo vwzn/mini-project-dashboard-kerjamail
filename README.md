@@ -2,7 +2,8 @@
 
  *Dashboard preview image*
 ![WhatsApp Image 2025-05-18 at 18 00 58_42dd80e2](https://github.com/user-attachments/assets/dc60f51a-9319-45d8-9de3-3d214407e858)
-![iPhone-15-Pro-393x852](https://github.com/user-attachments/assets/32ce6ebd-db66-40a6-9c4c-0db5fe593f3d)
+![WhatsApp Image 2025-05-18 at 18 02 34_0a0957b5](https://github.com/user-attachments/assets/73d46d8f-f9e4-4334-b639-8a93e299762c)
+
 
 ## 🚀 Fitur Utama
 
