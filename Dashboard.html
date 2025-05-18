@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard Kerja.mail.co</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/responsive.css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-100 overflow-x-hidden">
+        <!-- Navigation -->
+        <nav class="gradient-bg text-white p-4 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <button id="sidebarToggle" class="md:hidden">
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <div
+                        class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-blue-600 font-bold">K</span>
+                    </div>
+                    <h1 class="text-xl font-bold">Kerja.mail.co</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span id="welcomeUser" class="hidden"></span>
+                    <button
+                        id="logoutBtn"
+                        class="bg-white bg-opacity-20 px-4 py-2 rounded-lg hover:bg-opacity-30 transition-all">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex min-h-screen">
+            <!-- Sidebar -->
+            <div
+                id="sidebarOverlay"
+                class="fixed inset-0 bg-white  z-30 hidden md:hidden">
+                <div class="p-6">
+                    <nav class="space-y-2">
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="dashboard">
+                            <span
+                                class="w-5 h-5 bg-blue-100 rounded flex items-center justify-center"
+                                >📊</span
+                            >
+                            <span>Dashboard</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="domains">
+                            <span
+                                class="w-5 h-5 bg-green-100 rounded flex items-center justify-center"
+                                >🌐</span
+                            >
+                            <span>Domain Management</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="mailboxes">
+                            <span
+                                class="w-5 h-5 bg-yellow-100 rounded flex items-center justify-center"
+                                >📧</span
+                            >
+                            <span>Mailbox Management</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="security">
+                            <span
+                                class="w-5 h-5 bg-red-100 rounded flex items-center justify-center"
+                                >🔒</span
+                            >
+                            <span>Security</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="analytics">
+                            <span
+                                class="w-5 h-5 bg-purple-100 rounded flex items-center justify-center"
+                                >📈</span
+                            >
+                            <span>Analytics</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="settings">
+                            <span
+                                class="w-5 h-5 bg-gray-100 rounded flex items-center justify-center"
+                                >⚙️</span
+                            >
+                            <span>Settings</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            <div
+                id="sidebar"
+                class="w-64 bg-white shadow-lg sidebar-enter transform -translate-x-full md:translate-x-0 fixed md:static inset-y-0 left-0 z-40 transition-transform duration-300 ease-in-out">
+                <div class="p-6">
+                    <nav class="space-y-2">
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="dashboard">
+                            <span
+                                class="w-5 h-5 bg-blue-100 rounded flex items-center justify-center"
+                                >📊</span
+                            >
+                            <span>Dashboard</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="domains">
+                            <span
+                                class="w-5 h-5 bg-green-100 rounded flex items-center justify-center"
+                                >🌐</span
+                            >
+                            <span>Domain Management</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="mailboxes">
+                            <span
+                                class="w-5 h-5 bg-yellow-100 rounded flex items-center justify-center"
+                                >📧</span
+                            >
+                            <span>Mailbox Management</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="security">
+                            <span
+                                class="w-5 h-5 bg-red-100 rounded flex items-center justify-center"
+                                >🔒</span
+                            >
+                            <span>Security</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="analytics">
+                            <span
+                                class="w-5 h-5 bg-purple-100 rounded flex items-center justify-center"
+                                >📈</span
+                            >
+                            <span>Analytics</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-all"
+                            data-section="settings">
+                            <span
+                                class="w-5 h-5 bg-gray-100 rounded flex items-center justify-center"
+                                >⚙️</span
+                            >
+                            <span>Settings</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="flex-1 p-6 ">
+                <div id="content" class="content-fade">
+                    <!-- Dashboard Content -->
+                    <div id="dashboard-content" class="section-content">
+                        <h2 class="text-2xl font-bold mb-6">
+                            Dashboard Overview
+                        </h2>
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <div
+                                class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-gray-600">
+                                            Total Domains
+                                        </p>
+                                        <p
+                                            id="totalDomains"
+                                            class="text-2xl font-bold text-blue-600">
+                                            0
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                        🌐
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-gray-600">
+                                            Active Mailboxes
+                                        </p>
+                                        <p
+                                            id="totalMailboxes"
+                                            class="text-2xl font-bold text-green-600">
+                                            0
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                        📧
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-gray-600">
+                                            Storage Used
+                                        </p>
+                                        <p
+                                            id="storageUsed"
+                                            class="text-2xl font-bold text-yellow-600">
+                                            0 GB
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                                        💾
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-gray-600">
+                                            Security Score
+                                        </p>
+                                        <p
+                                            id="securityScore"
+                                            class="text-2xl font-bold text-purple-600">
+                                            95%
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                        🔒
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div
+                                class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="text-lg font-semibold mb-4">
+                                    Recent Activity
+                                </h3>
+                                <div id="recentActivity" class="space-y-3">
+                                    <!-- Activity items will be populated by JS -->
+                                </div>
+                            </div>
+                            <div
+                                class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="text-lg font-semibold mb-4">
+                                    Quick Actions
+                                </h3>
+                                <div class="space-y-3">
+                                    <button
+                                        class="w-full text-left p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-all"
+                                        onclick="showModal('domainModal')">
+                                        ➕ Add New Domain
+                                    </button>
+                                    <button
+                                        class="w-full text-left p-3 bg-green-50 rounded-lg hover:bg-green-100 transition-all"
+                                        onclick="showModal('mailboxModal')">
+                                        📧 Create Mailbox
+                                    </button>
+                                    <button
+                                        class="w-full text-left p-3 bg-purple-50 rounded-lg hover:bg-purple-100 transition-all">
+                                        📊 View Reports
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domain Management Content -->
+                    <div id="domains-content" class="section-content hidden">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">
+                                Domain Management
+                            </h2>
+                            <button
+                                onclick="showModal('domainModal')"
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
+                                Add Domain
+                            </button>
+                        </div>
+                        <div id="domainsList" class="space-y-4">
+                            <!-- Domain items will be populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Mailbox Management Content -->
+                    <div id="mailboxes-content" class="section-content hidden">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">
+                                Mailbox Management
+                            </h2>
+                            <button
+                                onclick="showModal('mailboxModal')"
+                                class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-all">
+                                Create Mailbox
+                            </button>
+                        </div>
+                        <div id="mailboxesList" class="space-y-4">
+                            <!-- Mailbox items will be populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Security Content -->
+                    <div id="security-content" class="section-content hidden">
+                        <h2 class="text-2xl font-bold mb-6">Security Center</h2>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div
+                                class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="text-lg font-semibold mb-4">
+                                    Two-Factor Authentication
+                                </h3>
+                                <p class="text-gray-600 mb-4">
+                                    Secure your account with 2FA
+                                </p>
+                                <button
+                                    class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-all">
+                                    Enable 2FA
+                                </button>
+                            </div>
+                            <div
+                                class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="text-lg font-semibold mb-4">
+                                    Password Policy
+                                </h3>
+                                <p class="text-gray-600 mb-4">
+                                    Enforce strong passwords
+                                </p>
+                                <button
+                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
+                                    Configure
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Content -->
+                    <div id="analytics-content" class="section-content hidden">
+                        <h2 class="text-2xl font-bold mb-6">
+                            Analytics & Reports
+                        </h2>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div
+                                class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="text-lg font-semibold mb-4">
+                                    Email Traffic
+                                </h3>
+                                <div
+                                    class="h-48 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <p class="text-gray-500">
+                                        Chart placeholder
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="text-lg font-semibold mb-4">
+                                    Storage Usage
+                                </h3>
+                                <div
+                                    class="h-48 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <p class="text-gray-500">
+                                        Chart placeholder
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Content -->
+                    <div id="settings-content" class="section-content hidden">
+                        <h2 class="text-2xl font-bold mb-6">Settings</h2>
+                        <div class="card-3d bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">
+                                General Settings
+                            </h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium text-gray-700 mb-2"
+                                        >Organization Name</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                        value="My Organization" />
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium text-gray-700 mb-2"
+                                        >Default Language</label
+                                    >
+                                    <select
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                        <option>English</option>
+                                        <option>Indonesian</option>
+                                    </select>
+                                </div>
+                                <button
+                                    type="submit"
+                                    class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all">
+                                    Save Changes
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modals -->
+        <!-- Domain Modal -->
+        <div
+            id="domainModal"
+            class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+            <div
+                class="glass-effect rounded-lg p-6 w-full max-w-md modal-enter">
+                <h3 class="text-lg font-semibold mb-4 text-white">
+                    Add New Domain
+                </h3>
+                <form id="domainForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-white mb-2"
+                            >Domain Name</label
+                        >
+                        <input
+                            type="text"
+                            id="domainName"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="example.com" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-white mb-2"
+                            >Domain Type</label
+                        >
+                        <select
+                            id="domainType"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <option value="primary">Primary</option>
+                            <option value="secondary">Secondary</option>
+                            <option value="alias">Alias</option>
+                        </select>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button
+                            type="submit"
+                            class="flex-1 bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-all">
+                            Add Domain
+                        </button>
+                        <button
+                            type="button"
+                            onclick="hideModal('domainModal')"
+                            class="flex-1 bg-gray-600 text-white p-3 rounded-lg hover:bg-gray-700 transition-all">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Mailbox Modal -->
+        <div
+            id="mailboxModal"
+            class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+            <div
+                class="glass-effect rounded-lg p-6 w-full max-w-md modal-enter">
+                <h3 class="text-lg font-semibold mb-4 text-white">
+                    Create New Mailbox
+                </h3>
+                <form id="mailboxForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-white mb-2"
+                            >Email Address</label
+                        >
+                        <input
+                            type="email"
+                            id="mailboxEmail"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="user@domain.com" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-white mb-2"
+                            >Display Name</label
+                        >
+                        <input
+                            type="text"
+                            id="mailboxDisplayName"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="John Doe" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-white mb-2"
+                            >Storage Quota (GB)</label
+                        >
+                        <input
+                            type="number"
+                            id="mailboxQuota"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="10"
+                            min="1"
+                            max="100" />
+                    </div>
+                    <div class="flex space-x-3">
+                        <button
+                            type="submit"
+                            class="flex-1 bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition-all">
+                            Create Mailbox
+                        </button>
+                        <button
+                            type="button"
+                            onclick="hideModal('mailboxModal')"
+                            class="flex-1 bg-gray-600 text-white p-3 rounded-lg hover:bg-gray-700 transition-all">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="js/sidebar.js"></script>
+        <script src="js/dashboard-utils.js"></script>
+        <script src="js/StorageManager.js"></script>
+        <script src="js/AppState.js"></script>
+        <script src="js/NavHandling.js"></script>
+        <script src="js/SectionManagement.js"></script>
+        <script src="js/ModalManagement.js"></script>
+        <script src="js/FormHandling.js"></script>
+        <script src="js/Actions.js"></script>
+        <script src="js/Logout.js"></script>
+        <script src="js/initializeSampleData.js"></script>
+    </body>
+</html>

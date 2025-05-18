@@ -1,0 +1,49 @@
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+    .flex.min-h-screen {
+        flex-direction: column;
+    }
+    
+    .w-64 {
+        width: 100%;
+    }
+    
+    .sidebar-enter {
+        position: static;
+        width: 100%;
+    }
+    
+    /* Adjust grid layouts for mobile */
+    .grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Adjust padding for mobile */
+    .p-6 {
+        padding: 1rem;
+    }
+
+    .sidebar-open {
+        transform: translateX(0) !important;
+    }
+    
+    .sidebar-open + div {
+        transform: translateX(16rem);
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Adjust modal width */
+    .max-w-md {
+        max-width: 95%;
+    }
+}

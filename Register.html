@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Register</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body
+        class="bg-gradient-to-br from-purple-600 to-indigo-700 min-h-screen flex items-center justify-center">
+        <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+            <h2 class="text-3xl font-bold mb-6 text-center text-purple-700">
+                Register
+            </h2>
+            <form id="registerForm" class="space-y-4">
+                <input
+                    type="text"
+                    placeholder="Username"
+                    id="username"
+                    required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    id="password"
+                    required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                <button
+                    type="submit"
+                    class="w-full bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition">
+                    Register
+                </button>
+            </form>
+            <p class="text-center text-sm mt-4 text-gray-600">
+                Sudah punya akun?
+                <a href="login.html" class="text-purple-600 hover:underline"
+                    >Login</a
+                >
+            </p>
+        </div>
+
+        <script>
+            document
+                .getElementById("registerForm")
+                .addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    const username = document.getElementById("username").value;
+                    const password = document.getElementById("password").value;
+
+                    const user = { username, password };
+                    localStorage.setItem("user", JSON.stringify(user));
+
+                    alert("Registrasi berhasil!");
+                    window.location.href = "login.html";
+                });
+        </script>
+    </body>
+</html>
