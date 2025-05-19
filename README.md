@@ -54,7 +54,6 @@
 
 ---
 
-This format makes it easier to scan through each section and clearly separates desktop and mobile views for each page. Let me know if you'd like any modifications!
   
 ## 🚀 Fitur Utama
 
