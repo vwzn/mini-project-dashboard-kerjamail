@@ -114,4 +114,4 @@ module.exports = {
 
 
 
-![Dashboard Responsive](responsive-showcase.gif) *Tampilan responsive di berbagai perangkat*
+*Tampilan responsive di berbagai perangkat*
