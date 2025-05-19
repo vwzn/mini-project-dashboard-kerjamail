@@ -60,22 +60,7 @@ module.exports = {
 4. Push ke branch (`git push origin fitur/namafitur`)
 5. Buat Pull Request
 
-## 📜 Lisensi
 
-MIT © 2023 Kerja.mail.co
-
----
-
-<div align="center">
-  
-[![Twitter Follow](https://img.shields.io/twitter/follow/kerjamaillco?style=social)](https://twitter.com/kerjamaillco)
-[![GitHub Stars](https://img.shields.io/github/stars/username/kerja-mail-dashboard?style=social)](https://github.com/username/kerja-mail-dashboard)
-
-</div>
-
-
-
----
 
 
 
