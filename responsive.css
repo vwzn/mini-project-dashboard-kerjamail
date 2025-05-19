@@ -1,0 +1,18 @@
+/* Custom responsive styles */
+@media (max-width: 640px) {
+    .mobile-padding {
+        padding: 1.5rem;
+    }
+
+    .mobile-text {
+        font-size: 1.5rem;
+    }
+
+    .mobile-input {
+        padding: 0.75rem;
+    }
+
+    .mobile-button {
+        padding: 0.75rem;
+    }
+}
